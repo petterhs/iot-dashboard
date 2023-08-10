@@ -5,15 +5,18 @@ import * as database from '../../../lib/server/database.js';
 export async function POST({request}) {
 
     //log raw data to console
-    console.log(await request.text());
+    const rawdata = await request.text();
+    console.log(rawdata);
 
     // const jsondata = await request.json();
 
     // console.log(jsondata);
 
-    // const ts = database.addDataPoint(jsondata);
+    const ts = database.addDataPoint({
+        rawdata : rawdata,
+    })
 
-    return json({});
+    return json(ts);
 }
 
 export async function GET() {
