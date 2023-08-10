@@ -3,14 +3,17 @@ import { json } from '@sveltejs/kit';
 import * as database from '../../../lib/server/database.js';
 
 export async function POST({request}) {
-    
-        const jsondata = await request.json();
 
-        console.log(jsondata);
-    
-        const ts = database.addDataPoint(jsondata);
-    
-        return json(ts);
+    //log raw data to console
+    console.log(await request.text());
+
+    // const jsondata = await request.json();
+
+    // console.log(jsondata);
+
+    // const ts = database.addDataPoint(jsondata);
+
+    return json({});
 }
 
 export async function GET() {
